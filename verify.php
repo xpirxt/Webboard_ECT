@@ -1,6 +1,6 @@
 <?php
 session_start();
-if(!isset($_SESSION['id'])){
+if(isset($_SESSION['id'])){
     header("location:index.php");
     die();
 }
@@ -22,7 +22,7 @@ if(!isset($_SESSION['id'])){
         if($login == "admin" && $password == "ad1234"){
             $_SESSION['username']='admin';
             $_SESSION['role']='a';
-            $_SESSION['id']='session_id()';
+            $_SESSION['id']= session_id();
 
             echo "ยินดีต้อนรับคุณ ADMIN";
         }
