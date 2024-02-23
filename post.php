@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,7 +12,16 @@
     <h1 style="text-align: center;">Webboard KakKak</h1>
     <hr>
     <div style="text-align: center;">
-        ต้องการดูกระทู้หมายเลข <?php echo $_GET['id'];?>
+        ต้องการดูกระทู้หมายเลข <?php echo $_GET['id'];?><br>
+        <?php
+        $p = $_GET['id'];
+        if(($p % 2) == 0){
+            echo "เป็นกระทู้หมายเลขคู่";
+        }
+        else{
+            echo "เป็นกระทู้หมายเลขคี่";
+        }
+        ?>
     </div>
     <br> 
         <table style="border: 2px solid black; width: 40%;" align="center">
@@ -25,7 +37,7 @@
         </table>
         <br>
         <div style="text-align: center;">
-        <a href="index.html">กลับไปหน้าหลัก</a>
+        <a href="index.php">กลับไปหน้าหลัก</a>
         </div>
 </body>
 </html>
