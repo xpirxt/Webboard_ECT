@@ -17,27 +17,7 @@ session_start();
     <div class="container-lg">
         <h1 style="text-align: center;" class="mt-3">Webboard KakKak</h1>
 
-        <nav class="navbar navbar-expand-lg" style="background-color: #a4a4a4;">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="index.php"><i class="bi bi-house-exclamation-fill"></i>HOME</a>
-                <ul class="navbar-nav">
-                    <?php if (!isset($_SESSION['id'])) { ?>
-                        <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="login.php"><i class="bi bi-pencil-square"></i>เข้าสู่ระบบ</a>
-                        </li>
-                    <?php } else { ?>
-                        <li class="nav-item dropdown">
-                            <a class="btn btn-outline-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                <i class="bi bi-person-fill-exclamation"></i><?php echo $_SESSION['username'] ?>
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="logout.php">ออกจากระบบ</a></li>
-                            </ul>
-                        </li>
-                    <?php } ?>
-                </ul>
-            </div>
-        </nav>
+        <?php include "nav.php"?>
 
         <div class="mt-3 d-flex justify-content-between">
             <div>
@@ -53,15 +33,15 @@ session_start();
                     </ul>
                 </span>
             </div>
-            <?php if(isset($_SESSION['id'])) { ?>
-            <div>
-                <a href="newport.php" class="btn btn-success btn-sm"><i class="bi bi-plus">สร้างกระทู้ใหม่</i></i></a>
-            </div>
+            <?php if (isset($_SESSION['id'])) { ?>
+                <div>
+                    <a href="newport.php" class="btn btn-success btn-sm"><i class="bi bi-plus">สร้างกระทู้ใหม่</i></i></a>
+                </div>
             <?php } ?>
         </div>
 
         <table class="table table-striped mt-4">
-        <?php
+            <?php
             for ($i = 1; $i <= 10; $i++) {
                 echo "<tr><td class='d-flex justify-content-between'><a href=post.php?id=$i style=text-decoration:none>กระทู้ที่ $i</a>";
                 if (isset($_SESSION['id']) && ($_SESSION['role'] == 'a')) {
@@ -71,7 +51,7 @@ session_start();
             }
             ?>
         </table>
-        
+
     </div>
 </body>
 
