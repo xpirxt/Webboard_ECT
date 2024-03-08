@@ -15,13 +15,8 @@ session_start();
 
 <body>
     <div class="container-lg">
-
         <h1 style="text-align: center;" class="mt-3">Webboard KakKak</h1>
-
-
         <?php include "nav.php" ?>
-
-
         <div class="mt-3 d-flex justify-content-between">
             <div>
                 <label>หมวดหมู่</label>
@@ -61,7 +56,6 @@ session_start();
             $conn = null;
             ?>
         </table>
-
     </div>
 </body>
 
