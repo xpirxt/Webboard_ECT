@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 08, 2024 at 06:38 AM
+-- Generation Time: Mar 15, 2024 at 06:12 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -55,6 +55,14 @@ CREATE TABLE `comment` (
   `post_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+--
+-- Dumping data for table `comment`
+--
+
+INSERT INTO `comment` (`id`, `content`, `post_date`, `user_id`, `post_id`) VALUES
+(1, '+1', '2024-03-15 10:17:15', 5, 5),
+(2, '+2', '2024-03-15 10:29:21', 6, 5);
+
 -- --------------------------------------------------------
 
 --
@@ -75,9 +83,7 @@ CREATE TABLE `post` (
 --
 
 INSERT INTO `post` (`id`, `title`, `content`, `post_date`, `cat_id`, `user_id`) VALUES
-(2, 'โหลๆ เทสๆ', '123', '2024-03-02 23:46:55', 1, 4),
 (3, 'จะ F มั้ยครับ', 'ผมเอาแต่ลอกงานเพื่อน ผมจะ F มั้ยครับ', '2024-03-02 23:48:34', 2, 5),
-(4, 'บอลโลกมีปีไหน', '???', '2024-03-08 10:45:00', 3, 5),
 (5, 'มหาลัยไหนติดTop 10บ้าง?', 'แล้วคณะไหนน่าสนใจ', '2024-03-08 10:49:15', 2, 5);
 
 -- --------------------------------------------------------
@@ -102,7 +108,8 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`id`, `login`, `password`, `name`, `gender`, `email`, `role`) VALUES
 (4, 'sss', 'b76bd99a0d97fd69a87dcb0192ccfa04722997b5', 'sss ddd', 'f', 'sss123@gmail.com', 'm'),
-(5, 'admin', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220', 'ad min', 'm', 'admin@gmail.com', 'm');
+(5, 'admin', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220', 'ad min', 'm', 'admin@gmail.com', 'a'),
+(6, 'asd', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220', 'asd dsa', 'f', 'asd1234@gmail.com', 'm');
 
 --
 -- Indexes for dumped tables
@@ -146,7 +153,7 @@ ALTER TABLE `category`
 -- AUTO_INCREMENT for table `comment`
 --
 ALTER TABLE `comment`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `post`
@@ -158,7 +165,7 @@ ALTER TABLE `post`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
