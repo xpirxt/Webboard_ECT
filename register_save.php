@@ -1,9 +1,8 @@
 <?php
-session_start();
 if (isset($_POST['login'])) {
-
+    session_start();
     $login = $_POST['login'];
-    $passwd = sha1($_POST['pwd']);
+    $password = $_POST['pwd'];
     $name = $_POST['name'];
     $gender = $_POST['gender'];
     $email = $_POST['email'];
@@ -14,14 +13,15 @@ if (isset($_POST['login'])) {
     if ($result->rowCount() == 1) {
         $_SESSION['add_login'] = "error";
     } else {
-        $sql1 = "INSERT INTO user (login,password,name,gender,email,role)
- VALUES ('$login','$passwd','$name','$gender','$email','m')";
+        $sql1 = "INSERT INTO user (login, password, name, gender, email, role)
+        VALUES ('$login',sha1('$password'),'$name','$gender','$email','m')";
         $conn->exec($sql1);
         $_SESSION['add_login'] = "success";
     }
     $conn = null;
-    header("Location:register.php");
+    header("location:register.php");
+    die();
 } else {
-    header("Location:index.php");
+    header("location:index.php");
     die();
 }
