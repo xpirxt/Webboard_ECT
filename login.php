@@ -36,7 +36,7 @@ if (isset($_SESSION['id'])) {
 
 <body>
     <div class="container-lg">
-        <h1 style="text-align:center;" class="mt-3">Webboard 1srah</h1>
+        <h1 style="text-align:center;" class="mt-3">Webboard apirat</h1>
         <?php include "nav.php" ?>
         <div class="row mt-3">
             <div class="col-lg-4 col-md-3 col-sm-2 col-1"></div>
